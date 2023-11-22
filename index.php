@@ -27,7 +27,6 @@
             </div>
             <div class="remember-forgot">
                 <label><input type="checkbox" checked>Remember me</label>
-                <a href="./pages/forgot_password.php">Forgot password?</a>
             </div>
             
             <button type="submit" class="btn">Login</button>
@@ -42,10 +41,6 @@
 </html>
 
 <?php
-    /*moj kod*/
-    /* echo "{$_POST["username"]} <br>";
-    echo "{$_POST["password"]} <br>"; */
-
     require_once('./database.php'); // Připojení k databázi
     
 ?>
