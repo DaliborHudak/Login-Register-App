@@ -15,7 +15,7 @@
     <form action="index.php" method="post">
         <h2>Succesfully registered.</h2>
 
-        <button type="submit" class="btn"><a href="./index.php">Home</a></button>
+        <button class="btn"><a href="./index.php">Home</a></button>
     </form>
     </div>
 </body>
