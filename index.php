@@ -55,7 +55,6 @@
         } else {
             echo loginUser($conn, $username, $password);
         }
-    
-        // Opraveno: Odstraněte $conn->close(); zde, protože bude uzavřeno ve funkci loginUser nebo registerUser
+
     }
 ?>
