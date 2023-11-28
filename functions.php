@@ -67,6 +67,9 @@ function loginUser($conn, $username, $password) {
         // Kontrola, zda zadané heslo odpovídá uloženému heslu
         if ($user_data['password'] == $password) {
             // Pokud heslo odpovídá, uživatel je úspěšně přihlášen
+            // Přesměrování na log-redirect.php
+            header("Location: log-redirect.php");
+            exit(); // Zajištění, že se skript po přesměrování okamžitě ukončí
             return "User logged in successfully.";
         } else {
             // Pokud heslo nesouhlasí, vrátíme chybovou zprávu
