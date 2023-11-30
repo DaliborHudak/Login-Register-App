@@ -2,13 +2,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$db_server = "localhost:3306";
-$db_user = "root";
-$db_pass = "password";
-$db_name = "customprojectdb";
-$conn = "";
+// Načítaj konfiguračné údaje
+include('config.php');
 
-$conn = new mysqli($db_server, $db_user, $db_pass, $db_name);
+$conn = new mysqli($config['db_server'], $config['db_user'], $config['db_pass'], $config['db_name']);
 
 // only uncomment for testing purposes
 

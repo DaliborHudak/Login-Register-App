@@ -45,8 +45,10 @@
     require_once('./functions.php');
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+        // Kontrola, či existuje položka "username" v poli $_POST
+        $username = isset($_POST["username"]) ? $_POST["username"] : "";
+        // Kontrola, či existuje položka "password" v poli $_POST
+        $password = isset($_POST["password"]) ? $_POST["password"] : "";
     
         if (isset($_POST["register"])) {
             // Opraveno: Přidejte kontrolu, zda je pole email ve formuláři
@@ -55,6 +57,5 @@
         } else {
             echo loginUser($conn, $username, $password);
         }
-
     }
 ?>
