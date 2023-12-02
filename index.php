@@ -23,9 +23,6 @@
                 <input type="password" name="password" placeholder="Password" required>
                 <i class='bx bxs-lock-alt'></i>  
             </div>
-            <div class="remember-forgot">
-                <label><input type="checkbox" checked>Remember me</label>
-            </div>
             
             <button type="submit" class="btn">Login</button>
 
