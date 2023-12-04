@@ -12,7 +12,7 @@
 </head>
 <body>
     <div class="container">
-    <form action="index.php" method="post">
+    <form action="../index.php" method="post">
         <h2>Succesfully registered and logged in.</h2>
 
         <button class="btn"><a href="../index.php">Home</a></button>
