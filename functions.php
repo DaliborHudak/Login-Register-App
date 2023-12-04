@@ -59,6 +59,7 @@ function registerUser($conn, $username, $password, $email) {
 
 // Funkce pro přihlášení uživatele
 function loginUser($conn, $username, $password) {
+    
     // SQL dotaz pro získání informací o uživateli s daným jménem
     $check_user_sql = "SELECT * FROM my_users WHERE username = '$username'";
     $result = $conn->query($check_user_sql);
