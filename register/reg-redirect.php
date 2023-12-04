@@ -7,15 +7,15 @@
     <title>App | Redirect</title>
     
     <link href="https://fonts.cdnfonts.com/css/sf-pro-display" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="container">
     <form action="index.php" method="post">
-        <h2>Succesfully registered.</h2>
+        <h2>Succesfully registered and logged in.</h2>
 
-        <button class="btn"><a href="./index.php">Home</a></button>
+        <button class="btn"><a href="../index.php">Home</a></button>
     </form>
     </div>
 </body>

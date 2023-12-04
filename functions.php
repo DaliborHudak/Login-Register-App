@@ -32,9 +32,12 @@ function registerUser($conn, $username, $password, $email) {
         // Uživatel neexistuje, provedeme registraci
         $insert_user_sql = "INSERT INTO my_users (username, password, email) VALUES ('$username', '$password', '$email')";
         
-        // Pokud registrace proběhne úspěšně, přesměrujeme na reg-redirect.php
+        // Pokud registrace proběhne úspěšně
         if ($conn->query($insert_user_sql) === TRUE) {
-            header("Location: reg-redirect.php");
+            // Automatické přihlášení
+            loginUser($conn, $username, $password);
+            // Přesměrování na reg-redirect.php
+            header("Location: register/reg-redirect.php");
             exit(); // Zajištění, že se skript po přesměrování okamžitě ukončí
         } else {
             // Pokud dojde k chybě při registraci, vrátíme chybovou zprávu
@@ -68,7 +71,7 @@ function loginUser($conn, $username, $password) {
         if ($user_data['password'] == $password) {
             // Pokud heslo odpovídá, uživatel je úspěšně přihlášen
             // Přesměrování na log-redirect.php
-            header("Location: log-redirect.php");
+            header("Location: login/log-redirect.php");
             exit(); // Zajištění, že se skript po přesměrování okamžitě ukončí
             return "User logged in successfully.";
         } else {
