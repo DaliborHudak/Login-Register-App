@@ -1,6 +1,7 @@
 <?php
 function registerUser($conn, $username, $password, $email) {
     // Ověření existence e-mailu ve formuláři
+    
     if (empty($email)) {
         return "E-mail is missing.";
     }
@@ -24,6 +25,7 @@ function registerUser($conn, $username, $password, $email) {
     $existing_email_result = $conn->query($check_existing_email_sql);
 
     // Pokud uživatel existuje, vrátíme chybovou zprávu
+    
     if ($existing_user_result->num_rows > 0) {
         return "Not registered. User already exists.";
     } elseif ($existing_email_result->num_rows > 0) {
@@ -35,9 +37,10 @@ function registerUser($conn, $username, $password, $email) {
         // Pokud registrace proběhne úspěšně
         if ($conn->query($insert_user_sql) === TRUE) {
             // Automatické přihlášení
-            loginUser($conn, $username, $password);
+            // loginUser($conn, $username, $password);
             // Přesměrování na reg-redirect.php
-            header("Location: register/reg-redirect.php");
+            $path = "http://localhost:8888/customproject/register/reg-redirect.php";
+            header("Location: " . $path);
             exit(); // Zajištění, že se skript po přesměrování okamžitě ukončí
         } else {
             // Pokud dojde k chybě při registraci, vrátíme chybovou zprávu
@@ -72,7 +75,8 @@ function loginUser($conn, $username, $password) {
         if ($user_data['password'] == $password) {
             // Pokud heslo odpovídá, uživatel je úspěšně přihlášen
             // Přesměrování na log-redirect.php
-            header("Location: login/log-redirect.php");
+            $path = "http://localhost:8888/customproject/login/log-redirect.php";
+            header("Location: " . $path);
             exit(); // Zajištění, že se skript po přesměrování okamžitě ukončí
             return "User logged in successfully.";
         } else {

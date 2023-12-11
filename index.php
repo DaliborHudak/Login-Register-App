@@ -1,3 +1,31 @@
+<?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
+    
+    require_once('./database.php');
+    require_once('./functions.php');
+
+    $message = null;
+    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Kontrola, či existuje položka "username" v poli $_POST
+        $username = isset($_POST["username"]) ? $_POST["username"] : "";
+        // Kontrola, či existuje položka "password" v poli $_POST
+        $password = isset($_POST["password"]) ? $_POST["password"] : "";
+    
+        if (isset($_POST["register"])) {
+            // Opraveno: Přidejte kontrolu, zda je pole email ve formuláři
+            $email = isset($_POST["email"]) ? $_POST["email"] : "";
+
+            $message = registerUser($conn, $username, $password, $email);
+            // echo registerUser($conn, $username, $password, $email);
+        } else {
+            $message = loginUser($conn, $username, $password);
+            // echo loginUser($conn, $username, $password);
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +51,9 @@
                 <input type="password" name="password" placeholder="Password" required>
                 <i class='bx bxs-lock-alt'></i>  
             </div>
-            
+
+            <span><?php echo $message;?></span>
+
             <button type="submit" class="btn">Login</button>
 
             <div class="register-link">
@@ -33,26 +63,3 @@
     </div>
 </body>
 </html>
-
-<?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-    
-    require_once('./database.php');
-    require_once('./functions.php');
-    
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Kontrola, či existuje položka "username" v poli $_POST
-        $username = isset($_POST["username"]) ? $_POST["username"] : "";
-        // Kontrola, či existuje položka "password" v poli $_POST
-        $password = isset($_POST["password"]) ? $_POST["password"] : "";
-    
-        if (isset($_POST["register"])) {
-            // Opraveno: Přidejte kontrolu, zda je pole email ve formuláři
-            $email = isset($_POST["email"]) ? $_POST["email"] : "";
-            echo registerUser($conn, $username, $password, $email);
-        } else {
-            echo loginUser($conn, $username, $password);
-        }
-    }
-?>
