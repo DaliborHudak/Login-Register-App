@@ -1,6 +1,6 @@
 <?php
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
+    /* error_reporting(E_ALL);
+    ini_set('display_errors', 1); */
     
     require_once('../database.php');
     require_once('../functions.php');
@@ -9,19 +9,21 @@
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Kontrola, či existuje položka "username" v poli $_POST
+        // Controlling, if "username" is existing in array $_POST
         $username = isset($_POST["username"]) ? $_POST["username"] : "";
+
         // Kontrola, či existuje položka "password" v poli $_POST
+        // Controlling, if "password" is existing in array $_POST
         $password = isset($_POST["password"]) ? $_POST["password"] : "";
     
         if (isset($_POST["register"])) {
-            // Opraveno: Přidejte kontrolu, zda je pole email ve formuláři
+            // Pridá kontrolu, ak je pole email vo formulári
+            // Add control, if email array is in form
             $email = isset($_POST["email"]) ? $_POST["email"] : "";
-
             $message = registerUser($conn, $username, $password, $email);
-            // echo registerUser($conn, $username, $password, $email);
+
         } else {
             $message = loginUser($conn, $username, $password);
-            // echo loginUser($conn, $username, $password);
         }
     }
 ?>
@@ -60,12 +62,12 @@
             </div>
 
             <!-- this line is only for register authentification, it knows if we are currently in register.php or in index.php file -->
+            <!-- Tento riadok kódu slúži len na overenie či sa práve nachádzame v register.php súbore alebo v index.php súbore -->
             <input type="hidden" name="register" value="1">
 
             <button type="submit" class="btn">Register</button>
 
             <span><?php echo $message;?></span>
-            <!-- <a href="../reg-redirect.php">Register</a> -->
 
             <div class="register-link">
                 <p>Already have an account? <a href="../index.php">Sign in</a></p>
