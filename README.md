@@ -11,4 +11,5 @@ The user can completely get through Registration & Login with the credentials he
 
 I also maded a whole frontend for the app.
 
-![LoginRegister app](https://github.com/DaliborHudak/Login-Register-App/assets/94002411/31eb6684-ac5a-4353-8112-76a529fc0b5b)
+![LoginRegisterApp](https://github.com/DaliborHudak/Login-Register-App/assets/94002411/2a194e5e-9931-43e0-b26f-c11a9ad14daf)
+
